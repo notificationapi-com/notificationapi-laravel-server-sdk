@@ -6,7 +6,7 @@ Official Doc for Notification Api: https://docs.notificationapi.com/
 
 ## Installation
 
-To get the latest version of ```notificationapi-laravel``` on your project, require it from "composer":
+To get the latest version of ```notificationapi-laravel-server-sdk``` on your project, require it from "composer":
 
 
 	$ composer require notificationapi/notificationapi-laravel-server-sdk
