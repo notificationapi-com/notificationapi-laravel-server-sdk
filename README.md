@@ -1,6 +1,6 @@
 ### Notification-api for Laravel
 
-Package created to use the notification-api Service (https://www.notificationapi.com/) in Laravel projects
+Package to use the notification-api Service (https://www.notificationapi.com/) in Laravel Channels and helpers
 
 Official Doc for Notification Api: https://docs.notificationapi.com/
 
