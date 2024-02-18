@@ -9,7 +9,7 @@ Official Doc for Notification Api: https://docs.notificationapi.com/
 To get the latest version of ```notificationapi-laravel``` on your project, require it from "composer":
 
 
-	$ composer require nairanomura/notificationapi-laravel
+	$ composer require notificationapi/notificationapi-laravel-server-sdk
 
 
 Or you can add it directly in your composer.json file:
@@ -17,7 +17,7 @@ Or you can add it directly in your composer.json file:
 ```json
 {
     "require": {
-        "nairanomura/notificationapi-laravel": "1.0"
+        "notificationapi/notificationapi-laravel-server-sdk": "1.0"
     }
 }
 ```
@@ -30,7 +30,7 @@ Register the provider directly in your app configuration file `config/app.php`:
 'providers' => [
 	// ...
 	
-	NairanOmura\NotificationApi\NotificationApiServiceProvider::class,
+	NotificationAPI\NotificationApiServiceProvider::class,
 ]
 ```
 
