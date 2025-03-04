@@ -2,7 +2,6 @@
 
 namespace NotificationAPI;
 
-
 use Illuminate\Notifications\Notification;
 
 class NotificationApiChannel

@@ -20,7 +20,7 @@ class NotificationApiService extends NotificationAPI
         }
 
         $baseUrl = null;
-        if (!empty($config['region'])) {
+        if (! empty($config['region'])) {
             $baseUrl = NotificationApiRegion::getBaseUrl($config['region']);
         }
 

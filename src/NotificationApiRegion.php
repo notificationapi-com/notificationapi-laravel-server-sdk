@@ -5,7 +5,9 @@ namespace NotificationAPI;
 class NotificationApiRegion
 {
     public const US_REGION = 'US';
+
     public const EU_REGION = 'EU';
+
     public const CA_REGION = 'CA';
 
     private const BASE_URLS = [
@@ -16,9 +18,10 @@ class NotificationApiRegion
 
     public static function getBaseUrl(string $region): string
     {
-        if (!isset(self::BASE_URLS[$region])) {
-            throw new \InvalidArgumentException("Invalid region: {$region}. Must be one of: " . implode(', ', array_keys(self::BASE_URLS)));
+        if (! isset(self::BASE_URLS[$region])) {
+            throw new \InvalidArgumentException("Invalid region: {$region}. Must be one of: ".implode(', ', array_keys(self::BASE_URLS)));
         }
+
         return self::BASE_URLS[$region];
     }
-} 
+}
