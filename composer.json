@@ -15,6 +15,9 @@
     "laravel/framework": "^9.0|^10.0|^11.0",
     "notificationapi/notificationapi-php-server-sdk": "master"
   },
+  "require-dev": {
+    "laravel/pint": "^1.13"
+  },
   "extra": {
     "laravel": {
       "providers": [
@@ -26,5 +29,9 @@
     "psr-4" : {
       "NotificationAPI\\" :  "src/"
     }
+  },
+  "scripts": {
+    "check-style": "pint --test",
+    "fix-style": "pint"
   }
 }
