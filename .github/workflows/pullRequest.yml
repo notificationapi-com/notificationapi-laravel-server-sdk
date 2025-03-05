@@ -23,11 +23,12 @@ jobs:
       - uses: php-actions/composer@v6
       
       - name: finding vulnerabilities and weaknesses
-        run: ./vendor/bin/phpcs --extensions=php,inc,lib,module,info --standard=./vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml ./src/NotificationAPI/NotificationAPI.php
+        run: ./vendor/bin/phpcs --extensions=php,inc,lib,module,info --standard=./vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml ./src/
         continue-on-error: true
 
       - name: Build package
         run: |
+          sudo chown -R $USER:$USER .
           composer install --prefer-dist --no-progress
           composer dump-autoload --optimize
           composer validate
