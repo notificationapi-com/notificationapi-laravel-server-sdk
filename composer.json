@@ -16,7 +16,9 @@
     "notificationapi/notificationapi-php-server-sdk": "master"
   },
   "require-dev": {
-    "laravel/pint": "^1.13"
+    "laravel/pint": "^1.13",
+    "pheromone/phpcs-security-audit": "^2.0",
+    "squizlabs/php_codesniffer": "^3.7"
   },
   "extra": {
     "laravel": {
@@ -32,6 +34,11 @@
   },
   "scripts": {
     "check-style": "pint --test",
-    "fix-style": "pint"
+    "fix-style": "pint",
+    "check-security": "./vendor/bin/phpcs --extensions=php,inc,lib,module,info --standard=./vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml ./src/ || true",
+    "test": [
+      "@check-style",
+      "@check-security"
+    ]
   }
 }
