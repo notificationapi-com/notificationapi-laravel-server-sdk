@@ -22,10 +22,6 @@ jobs:
       
       - uses: php-actions/composer@v6
       
-      - name: finding vulnerabilities and weaknesses
-        run: ./vendor/bin/phpcs --extensions=php,inc,lib,module,info --standard=./vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml ./src/
-        continue-on-error: true
-
       - name: Build package
         run: |
           sudo chown -R $USER:$USER .
@@ -34,4 +30,7 @@ jobs:
           composer validate
 
       - name: Check code style
-        run: composer check-style 
+        run: composer check-style
+
+      - name: Check security
+        run: composer check-security 
