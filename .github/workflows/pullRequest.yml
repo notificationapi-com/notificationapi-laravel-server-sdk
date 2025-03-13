@@ -1,0 +1,37 @@
+name: Pull Request Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pull_request_pipeline:
+    name: Pull Request Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/cache@v4
+        id: cache-db
+        with:
+          path: ~/.symfony/cache
+          key: db
+          
+      - uses: symfonycorp/security-checker-action@v4
+      
+      - uses: php-actions/composer@v6
+      
+      - name: finding vulnerabilities and weaknesses
+        run: ./vendor/bin/phpcs --extensions=php,inc,lib,module,info --standard=./vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml ./src/
+        continue-on-error: true
+
+      - name: Build package
+        run: |
+          sudo chown -R $USER:$USER .
+          composer install --prefer-dist --no-progress
+          composer dump-autoload --optimize
+          composer validate
+
+      - name: Check code style
+        run: composer check-style 
